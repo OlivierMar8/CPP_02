@@ -3,7 +3,7 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-#include <ostream>
+# include <iostream>
 
 class Fixed {
 
@@ -15,19 +15,18 @@ class Fixed {
 		Fixed( const Fixed & src );		
 		~Fixed( void );					
 
-		Fixed &	operator=( Fixed const & rhs );
+		Fixed &	operator=( const Fixed & rhs );
 
-		int			getRawBits( void ) const;
-		void		setRawBits( int const raw );
+		int			getF_Value( void ) const;
+		void		setF_Value( const int raw );
 		float		toFloat( void ) const;
 		int			toInt ( void ) const;
 
 
 	private:
 
-		int 				_fixed;
-		static const int	_frac;
-
+		int 				_f_value;
+		static const int	_dec;
 };
 
 std::ostream &		operator<<( std::ostream & o, const Fixed & i );
