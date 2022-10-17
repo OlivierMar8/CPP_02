@@ -4,25 +4,25 @@
 #include <cmath>
 #include "Fixed.hpp"
 
-const int	Fixed::_dec = 8;
+const int	Fixed::_shift = 8;
 
 Fixed::Fixed( void ) {
 
-	this->_f_value = 0;
+	this->_fixed = 0;
 	std::cout << "Default Constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed( const int i ) {
 
-	this->_f_value = (i << Fixed::_dec);
+	this->_fixed = (i << Fixed::_shift);
 	std::cout << "Int Constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed( const float f ) {
 
-	this->_f_value = round(f * ( 1 << Fixed::_dec));
+	this->_fixed = round(f * ( 1 << Fixed::_shift));
 	std::cout << "Float Constructor called" << std::endl;
 	return;
 }
@@ -40,42 +40,72 @@ Fixed::~Fixed( void ) {
 		return;
 }
 
+bool	Fixed::operator>( Fixed const & rhs ) {
+
+	return (_fixed > rhs.getRawBits());
+}
+
+bool	Fixed::operator<( Fixed const & rhs ) {
+
+	return (_fixed < rhs.getRawBits());
+}
+
+bool	Fixed::operator>=( Fixed const & rhs ) {
+
+	return (_fixed >= rhs.getRawBits());
+}
+
+bool	Fixed::operator<=( Fixed const & rhs ) {
+
+	return (_fixed <= rhs.getRawBits());
+}
+
+bool	Fixed::operator==( Fixed const & rhs ) {
+
+	return (_fixed == rhs.getRawBits());
+}
+
+bool	Fixed::operator!=( Fixed const & rhs ) {
+
+	return (_fixed != rhs.getRawBits());
+}
+
 Fixed &	Fixed::operator=( Fixed const & rhs) {
 
 		std::cout << "Copy assignement operator called" << std::endl;
 
 		if ( this != &rhs )
-			this->_f_value = rhs.getF_Value();
+			this->_fixed = rhs.getRawBits();
 		return *this;
 }
 
-Fixed Fixed::operator+( const Fixed & rhs) const {
+Fixed Fixed::operator+( Fixed const & rhs) const {
 
 		std::cout << "Copy assignement operator called" << std::endl;
 
-		return Fixed( this->_f_value + rhs.getF_Value());
+		return Fixed( this->toFloat() + rhs.toFloat());
 }
 //ci-dessous a faire
 //
-int		Fixed::getF_Value( void ) const {
+int		Fixed::getRawBits( void ) const {
 
-		return this->_f_value;
+		return this->_fixed;
 }
 
-void	Fixed::setF_Value( int const raw ) {
+void	Fixed::setRawBits( int const raw ) {
 
-		this->_f_value = raw;
+		this->_fixed = raw;
 		return;
 }
 
 float	Fixed::toFloat( void ) const {
-	//false
-		return ((float)this->_f_value / (float)(1 <<Fixed::_dec));
+
+		return ((float)this->_fixed / (float)(1 <<Fixed::_shift));
 }
 
 int		Fixed::toInt( void ) const {
-	//false
-		return (this->_f_value >> Fixed::_dec);
+
+		return (this->_fixed >> Fixed::_shift);
 }
 
 

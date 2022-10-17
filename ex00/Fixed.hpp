@@ -3,7 +3,7 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-#include <ostream>
+#include <iostream>
 
 class Fixed {
 
@@ -22,7 +22,7 @@ class Fixed {
 	private:
 
 		int 				_fixed;
-		static const int	_frac;
+		static const int	_shift;
 
 };
 

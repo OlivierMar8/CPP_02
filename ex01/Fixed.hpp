@@ -10,15 +10,15 @@ class Fixed {
 	public:
 
 		Fixed( void );					
-		Fixed( const int i );
-		Fixed( const float f );
-		Fixed( const Fixed & src );		
+		Fixed( int const i );
+		Fixed( float const f );
+		Fixed( Fixed const & src );		
 		~Fixed( void );					
 
-		Fixed &	operator=( const Fixed & rhs );
+		Fixed &	operator=( Fixed const & rhs );
 
-		int			getF_Value( void ) const;
-		void		setF_Value( const int raw );
+		int			getRawBits( void ) const;
+		void		setRawBits( int const raw );
 		float		toFloat( void ) const;
 		int			toInt ( void ) const;
 
@@ -29,6 +29,6 @@ class Fixed {
 		static const int	_dec;
 };
 
-std::ostream &		operator<<( std::ostream & o, const Fixed & i );
+std::ostream &		operator<<( std::ostream & o, Fixed const & i );
 
 #endif

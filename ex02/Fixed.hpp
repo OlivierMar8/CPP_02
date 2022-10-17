@@ -10,45 +10,45 @@ class Fixed {
 	public:
 
 		Fixed( void );					
-		Fixed( const int i );
-		Fixed( const float f );
-		Fixed( const Fixed & src );		
+		Fixed( int const i );
+		Fixed( float const f );
+		Fixed( Fixed const & src );		
 		~Fixed( void );					
 
-/*		Fixed &	operator>( const Fixed & rhs );
-		Fixed &	operator<( const Fixed & rhs );
-		Fixed &	operator>=( const Fixed & rhs );
-		Fixed &	operator<=( const Fixed & rhs );
-		Fixed &	operator==( const Fixed & rhs );
-		Fixed &	operator!=( const Fixed & rhs );
-*/
-		Fixed &	operator=( const Fixed & rhs );
-		Fixed operator+( const Fixed & rhs ) const;
-/*		Fixed &	operator-( const Fixed & rhs );
-		Fixed &	operator*( const Fixed & rhs );
-		Fixed &	operator/( const Fixed & rhs );
+		bool	operator>( Fixed const & rhs );
+		bool	operator<( Fixed const & rhs );
+		bool	operator>=( Fixed const & rhs );
+		bool	operator<=( Fixed const & rhs );
+		bool	operator==( Fixed const & rhs );
+		bool	operator!=( Fixed const & rhs );
 
-		Fixed &	operator++( const Fixed & rhs );
-		Fixed &	operator--( const Fixed & rhs );
-		Fixed &	operator++( const Fixed & rhs );
-		Fixed &	operator--( const Fixed & rhs );
+		Fixed &	operator=( Fixed const & rhs );
+		Fixed operator+( Fixed const & rhs ) const;
+/*		Fixed &	operator-( Fixed const & rhs );
+		Fixed &	operator*( Fixed const & rhs );
+		Fixed &	operator/( Fixed const & rhs );
+
+		Fixed &	operator++( Fixed const & rhs );
+		Fixed &	operator--( Fixed const & rhs );
+		Fixed &	operator++( Fixed const & rhs );
+		Fixed &	operator--( Fixed const & rhs );
 		Fixed & min( Fixed f1, Fixed f2 ) const;
-		Fixed & min( const Fixed f1, const Fixed f2 ) const;
+		Fixed & min( Fixed const f1, Fixed const f2 ) const;
 		Fixed & max( Fixed f1, Fixed f2 ) const;
-		Fixed & max( const Fixed f1, const Fixed f2 ) const;
+		Fixed & max( Fixed const f1, Fixed const f2 ) const;
 */
 
-		int			getF_Value( void ) const;
-		void		setF_Value( const int raw );
+		int			getRawBits( void ) const;
+		void		setRawBits( const int raw );
 		float		toFloat( void ) const;
 		int			toInt ( void ) const;
 
 	private:
 
-		int 				_f_value;
-		static const int	_dec;
+		int 				_fixed;
+		static const int	_shift;
 };
 
-std::ostream &		operator<<( std::ostream & o, const Fixed & i );
+std::ostream &		operator<<( std::ostream & o, Fixed const & i );
 
 #endif

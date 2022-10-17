@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Fixed.hpp"
 
-const int	Fixed::_frac = 8;
+const int	Fixed::_shift = 8;
 
 Fixed::Fixed( void ) {
 
