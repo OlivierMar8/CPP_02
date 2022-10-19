@@ -11,7 +11,12 @@ int	main( void )
 	Fixed y( 22 );
 	Fixed z;
 
+	z = -x;
+	a = +y;
+	std::cout << z << std::endl;
 	std::cout << a << std::endl;
+
+/*	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
@@ -81,6 +86,6 @@ int	main( void )
 	std::cout << a << " : " << x.toFloat() << " * " << z.toFloat()   << std::endl;
 
 	std::cout << Fixed::max( a, b)  << std::endl;
-
+*/
 	return 0;
 }

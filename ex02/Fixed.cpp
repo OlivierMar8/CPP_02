@@ -107,6 +107,17 @@ Fixed Fixed::operator/( Fixed const & rhs) const {
 		return Fixed( this->toFloat() / rhs.toFloat());
 }
 
+
+Fixed Fixed::operator+( void ) const {
+
+	return Fixed(this->toFloat());
+}
+
+Fixed Fixed::operator-( void ) const {
+
+	return Fixed(-this->toFloat());
+}
+
 Fixed Fixed::operator++( void ) {
 
 		this->_fixed++;
@@ -134,7 +145,7 @@ Fixed Fixed::operator--( int ) {
 		return tmp;
 }
 
-Fixed Fixed::min( Fixed f1, Fixed f2 ) {
+Fixed  & Fixed::min( Fixed f1, Fixed f2 ) {
 
 	if ( f1 <= f2)
 		return f1;
@@ -148,7 +159,7 @@ Fixed const Fixed::min( Fixed const f1, Fixed const f2 ) {
 	return f2;
 }
 
-Fixed Fixed::max( Fixed f1, Fixed f2 ) {
+Fixed & Fixed::max( Fixed f1, Fixed f2 ) {
 
 	if ( f1 >= f2)
 		return f1;
