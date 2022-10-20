@@ -6,17 +6,9 @@
 int	main( void )
 {
 	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2) );
-	Fixed x( 11 );
-	Fixed y( 22 );
-	Fixed z;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	z = -x;
-	a = +y;
-	std::cout << z << std::endl;
 	std::cout << a << std::endl;
-
-/*	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
@@ -27,6 +19,23 @@ int	main( void )
 	std::cout << Fixed::max( a, b) << std::endl;
 
 // ******************************************	
+	Fixed c;
+
+	std::cout << c << std::endl;
+	std::cout << --c << std::endl;
+	std::cout << c << std::endl;
+	std::cout << c-- << std::endl;
+	std::cout << c << std::endl;
+
+	std::cout << Fixed::min( a, c) << std::endl;
+
+	Fixed x( 11 );
+	Fixed y( 22 );
+	Fixed z;
+
+	z = -x;
+	a = +y;
+	std::cout << z << std::endl;
 	z = x + y;
 	std::cout << z.toFloat() <<std::endl;
 	if ( y > x)
@@ -86,6 +95,6 @@ int	main( void )
 	std::cout << a << " : " << x.toFloat() << " * " << z.toFloat()   << std::endl;
 
 	std::cout << Fixed::max( a, b)  << std::endl;
-*/
+
 	return 0;
 }
