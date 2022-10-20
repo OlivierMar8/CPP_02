@@ -9,34 +9,29 @@ const int	Fixed::_shift = 8;
 Fixed::Fixed( void ) {
 
 	this->_fixed = 0;
-	std::cout << "Default Constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed( const int i ) {
 
 	this->_fixed = (i << Fixed::_shift);
-	std::cout << "Int Constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed( const float f ) {
 
 	this->_fixed = round(f * ( 1 << Fixed::_shift));
-	std::cout << "Float Constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed( Fixed const & src )  {
 
-	std::cout << "Copy Constructor called" << std::endl;
 	*this = src;
 	return;
 }
 
 Fixed::~Fixed( void ) {
 
-		std::cout << "Destructor called" << std::endl;
 		return;
 }
 
@@ -72,8 +67,6 @@ bool	Fixed::operator!=( Fixed const & rhs ) const {
 
 Fixed &	Fixed::operator=( Fixed const & rhs) {
 
-		std::cout << "Copy assignement operator called" << std::endl;
-
 		if ( this != &rhs )
 			this->_fixed = rhs.getRawBits();
 		return *this;
@@ -81,28 +74,20 @@ Fixed &	Fixed::operator=( Fixed const & rhs) {
 
 Fixed Fixed::operator+( Fixed const & rhs) const {
 
-		std::cout << "Copy assignement operator called" << std::endl;
-
 		return Fixed( this->toFloat() + rhs.toFloat());
 }
 
 Fixed Fixed::operator-( Fixed const & rhs) const {
-
-		std::cout << "Copy assignement operator called" << std::endl;
 
 		return Fixed( this->toFloat() - rhs.toFloat());
 }
 
 Fixed Fixed::operator*( Fixed const & rhs) const {
 
-		std::cout << "Copy assignement operator called" << std::endl;
-
 		return Fixed( this->toFloat() * rhs.toFloat());
 }
 
 Fixed Fixed::operator/( Fixed const & rhs) const {
-
-		std::cout << "Copy assignement operator called" << std::endl;
 
 		return Fixed( this->toFloat() / rhs.toFloat());
 }

@@ -94,7 +94,5 @@ int	main( void )
 	a = x * z;
 	std::cout << a << " : " << x.toFloat() << " * " << z.toFloat()   << std::endl;
 
-	std::cout << Fixed::max( a, b)  << std::endl;
-
 	return 0;
 }
